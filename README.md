@@ -19,6 +19,10 @@ A solution to automate MongoDB Backup
 # How to execute
 * ```docker pull kingprimex/mongo-azure-backup:4.0 ```
 *  ```docker run --net=host --rm -e MONGO_HOST="localhost" -e BACKUP_FOLDER="mongo" -e FILENAME="backup" -e CONTAINER_NAME="mongo" -e ACCOUNT_NAME="storageblobaccount" -e ACCOUNT_KEY="blobkey" -it kingprimex/mongo-azure-backup:4.0```
-    * When the container runs , it connects to mongo , takes a dump and uploads to blob storage.
+    * When the container runs , it connects to mongo , takes a gzipped and archived dump and uploads to blob storage.
+
+# Restoring
+* '''mongorestore --gzip --archive=/tmp/test.archive_22-10-21_11%3a31%3a04  --host=127.0.0.1 -u=root -p=example```
+    * The restore has to be done manually by using the mongorestore command.
 
 ## Note : Preffered method of using this docker image effectively is by running it through a schedular or cron jobs
