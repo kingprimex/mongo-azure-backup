@@ -22,7 +22,7 @@ A solution to automate MongoDB Backup
     * When the container runs , it connects to mongo , takes a gzipped and archived dump and uploads to blob storage.
 
 # Restoring
-* '''mongorestore --gzip --archive=/tmp/test.archive_22-10-21_11%3a31%3a04  --host=127.0.0.1 -u=root -p=example```
+* ```mongorestore --gzip --archive=/tmp/test.archive_22-10-21_11%3a31%3a04  --host=127.0.0.1 -u=root -p=example```
     * The restore has to be done manually by using the mongorestore command.
 
 ## Note : Preffered method of using this docker image effectively is by running it through a schedular or cron jobs
